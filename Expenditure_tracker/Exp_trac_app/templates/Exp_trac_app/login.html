@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="row" align="center">
+
+      <div class="container">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <h1>Expense Tracker</h1>
+          <br>
+          <h2>Login</h2>
+          <form  method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <button type="submit" class="btn btn-success">Login</button>
+            {% endbuttons %}
+
+          </form>
+          <a href="{% url 'Exp_trac_app:signup' %}"><button type="button" class="btn btn-primary">Signup</button></a>
+
+
+        </div>
+        <div class="col-sm-4"></div>
+
+
+
+    </div>
+
+{% endblock %}

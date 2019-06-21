@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+<div class="row" align="center">
+
+    <div class="container">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <h2>Signup</h2>
+        <form  method="post">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          {% buttons %}
+          <button type="submit" class="btn btn-success">Signup</button>
+          {% endbuttons %}
+        </form>
+        <a href="{% url 'login' %}"><button type="button" class="btn btn-primary">Back to login</button></a>
+
+      </div>
+      <div class="col-sm-2"></div>
+
+
+
+  </div>
+
+{% endblock %}

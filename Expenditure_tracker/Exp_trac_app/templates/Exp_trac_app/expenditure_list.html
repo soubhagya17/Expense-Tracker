@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+    <h2>Your Expense for Current month</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Food</th>
+            <th>Mandatory</th>
+            <th>Essentials</th>
+            <th>Travel</th>
+            <th>Shopping</th>
+            <th>Booze</th>
+            <th>Entertainment</th>
+            <th>Others</th>
+            <th>People</th>
+            <th>Mobile</th>
+            <th>Daily Total Expense</th>
+            <th>Comments</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for expenditure in expenditure_list %}
+          {% if expenditure.mem_user == user %}
+
+
+          <tr>
+            <td>{{expenditure.date}}</td>
+            <td>{{expenditure.food}}</td>
+            <td>{{expenditure.mandatory}}</td>
+            <td>{{expenditure.essentials}}</td>
+            <td>{{expenditure.travel}}</td>
+            <td>{{expenditure.shopping}}</td>
+            <td>{{expenditure.booze}}</td>
+            <td>{{expenditure.entertainment}}</td>
+            <td>{{expenditure.people}}</td>
+            <td>{{expenditure.others}}</td>
+            <td>{{expenditure.mobile}}</td>
+            <td>{{expenditure.per_day_total}}</td>
+            <td>{{expenditure.comments}}</td>
+          </tr>
+
+          {% endif %}
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="container">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <h3>You have spend a total of Rs.{{ Total_Monthly_Exp }} this month.</h3>
+      </div>
+      <div class="col-sm-2"></div>
+
+
+
+
+{% endblock %}
